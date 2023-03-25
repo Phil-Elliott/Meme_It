@@ -1,18 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
+import { AiFillQuestionCircle } from "react-icons/ai";
+import { CiDark } from "react-icons/ci";
+import { BsFillSunFill } from "react-icons/bs";
 
 const Header = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
     <div className="flex justify-between items-center border-b-2 px-8 py-4">
       <div className="text-2xl font-bold">
         <h1>TDM</h1>
       </div>
       <h1 className="text-2xl font-bold">TheDailyMeme</h1>
-      <div className="text-2xl space-x-10">
-        <button>?</button>
-        <button>Dark</button>
+      <div className="text-2xl space-x-6 flex items-center">
+        <button className="">
+          <AiFillQuestionCircle />
+        </button>
+        <button
+          className="relative flex justify-between space-x-0 border-2 rounded-full px-3 py-2 text-sm w-24"
+          onClick={() => toggleDarkMode()}
+        >
+          <BsFillSunFill />
+          <div
+            className={`absolute border-2 h-full w-10 top-0 rounded-full transition-all duration-500 ease-in-out ${
+              darkMode ? "left-0" : "right-0"
+            }`}
+          ></div>
+          <CiDark />
+        </button>
       </div>
     </div>
   );
 };
 
 export default Header;
+
+/*
+3) Have dark mode work
+      - Add animations
+      - make it actually work
+
+
+2) Make responsive
+
+
+
+
+*/

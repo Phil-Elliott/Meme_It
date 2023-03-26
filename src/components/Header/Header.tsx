@@ -12,9 +12,9 @@ const Header = () => {
 
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove(!darkMode ? "light" : "dark");
-    root.classList.add(!darkMode ? "dark" : "light");
-    localStorage.setItem("theme", !darkMode ? "dark" : "light");
+    root.classList.remove(darkMode ? "light" : "dark");
+    root.classList.add(darkMode ? "dark" : "light");
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
   return (
@@ -30,11 +30,12 @@ const Header = () => {
         <button
           className="relative flex justify-between space-x-0 border-2 rounded-full px-3 py-2 text-sm w-24"
           onClick={() => toggleDarkMode()}
+          aria-label="toggle dark mode"
         >
           <BsFillSunFill />
           <div
             className={`absolute border-2 h-full w-10 top-0 rounded-full transition-all duration-500 ease-in-out ${
-              darkMode ? "left-0" : "right-0"
+              !darkMode ? "left-0" : "right-0"
             }`}
           ></div>
           <CiDark />
@@ -49,10 +50,5 @@ export default Header;
 /*
 
 - Add better animation to the dark mode button
-
-2) Make responsive
-
-
-
 
 */

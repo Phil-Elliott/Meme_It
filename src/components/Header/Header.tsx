@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { CiDark } from "react-icons/ci";
 import { BsFillSunFill } from "react-icons/bs";
+import Avatar from "../../shared/avatar/Avatar";
 
 const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -22,7 +23,7 @@ const Header = () => {
       <div className="text-2xl font-bold hidden sm:block">
         <h1>TDM</h1>
       </div>
-      <h1 className="text-2xl font-bold md:ml-20 pb-4 sm:p-0">TheDailyMeme</h1>
+      <h1 className="text-2xl font-bold md:ml-20 pb-4 xs:p-0">TheDailyMeme</h1>
       <div className="text-2xl space-x-4 sm:space-x-6 flex items-center">
         <button className="">
           <AiFillQuestionCircle />
@@ -41,6 +42,7 @@ const Header = () => {
           <CiDark />
         </button>
         <button className="text-lg">Sign In</button>
+        {/* <Avatar /> */}
       </div>
     </div>
   );

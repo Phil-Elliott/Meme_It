@@ -1,6 +1,7 @@
 import CreateMeme from "./components/CreateMeme/CreateMeme";
 import Header from "./components/Header/Header";
 import Image from "./components/Image/Image";
+import RankedMemes from "./components/RankedMemes/RankedMemes";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <Image />
       <CreateMeme />
+      <RankedMemes />
     </div>
   );
 }

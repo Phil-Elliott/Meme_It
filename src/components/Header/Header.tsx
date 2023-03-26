@@ -18,12 +18,12 @@ const Header = () => {
   }, [darkMode]);
 
   return (
-    <div className="flex justify-between items-center border-b-2 px-8 py-4">
-      <div className="text-2xl font-bold">
+    <div className="flex justify-between items-center border-b-2 px-4 sm:px-8 py-4">
+      <div className="text-2xl font-bold hidden sm:block">
         <h1>TDM</h1>
       </div>
       <h1 className="text-2xl font-bold">TheDailyMeme</h1>
-      <div className="text-2xl space-x-6 flex items-center">
+      <div className="text-2xl space-x-4 sm:space-x-6 flex items-center">
         <button className="">
           <AiFillQuestionCircle />
         </button>
@@ -47,8 +47,8 @@ const Header = () => {
 export default Header;
 
 /*
-      - make it actually work
 
+- Add better animation to the dark mode button
 
 2) Make responsive
 

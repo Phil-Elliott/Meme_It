@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { CiDark } from "react-icons/ci";
 import { BsFillSunFill } from "react-icons/bs";
@@ -9,6 +9,13 @@ const Header = () => {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    root.classList.remove(!darkMode ? "light" : "dark");
+    root.classList.add(!darkMode ? "dark" : "light");
+    localStorage.setItem("theme", !darkMode ? "dark" : "light");
+  }, [darkMode]);
 
   return (
     <div className="flex justify-between items-center border-b-2 px-8 py-4">
@@ -40,8 +47,6 @@ const Header = () => {
 export default Header;
 
 /*
-3) Have dark mode work
-      - Add animations
       - make it actually work
 
 

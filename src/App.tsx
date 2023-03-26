@@ -1,3 +1,4 @@
+import CreateMeme from "./components/CreateMeme/CreateMeme";
 import Header from "./components/Header/Header";
 import Image from "./components/Image/Image";
 
@@ -6,6 +7,7 @@ function App() {
     <div className="dark:bg-black dark:text-white min-h-screen">
       <Header />
       <Image />
+      <CreateMeme />
     </div>
   );
 }

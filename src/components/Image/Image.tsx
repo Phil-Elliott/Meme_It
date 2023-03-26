@@ -3,7 +3,7 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
 const Image = () => {
   return (
-    <div className="flex items-center justify-center my-16 space-x-4 sm:space-x-10 text-xl sm:text-3xl">
+    <div className="flex items-center justify-center my-10 space-x-4 sm:space-x-10 text-xl sm:text-3xl">
       <AiOutlineArrowLeft className="cursor-pointer" />
       <img
         className="w-3/4 sm:w-1/2 h-1/2 object-cover object-center rounded"

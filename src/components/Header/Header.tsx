@@ -18,11 +18,11 @@ const Header = () => {
   }, [darkMode]);
 
   return (
-    <div className="flex justify-between items-center border-b-2 px-4 sm:px-8 py-4">
+    <div className="flex justify-between flex-col xs:flex-row items-center border-b-2 px-4 sm:px-8 py-4">
       <div className="text-2xl font-bold hidden sm:block">
         <h1>TDM</h1>
       </div>
-      <h1 className="text-2xl font-bold">TheDailyMeme</h1>
+      <h1 className="text-2xl font-bold md:ml-20 pb-4 sm:p-0">TheDailyMeme</h1>
       <div className="text-2xl space-x-4 sm:space-x-6 flex items-center">
         <button className="">
           <AiFillQuestionCircle />
@@ -40,6 +40,7 @@ const Header = () => {
           ></div>
           <CiDark />
         </button>
+        <button className="text-lg">Sign In</button>
       </div>
     </div>
   );

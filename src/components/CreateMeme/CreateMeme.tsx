@@ -1,6 +1,3 @@
-import React from "react";
-import { AiFillCheckSquare } from "react-icons/ai";
-
 const CreateMeme = () => {
   return (
     <div className="flex justify-center">

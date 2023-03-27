@@ -5,7 +5,7 @@ import RankedMemes from "./components/RankedMemes/RankedMemes";
 
 function App() {
   return (
-    <div className="dark:bg-black dark:text-white min-h-screen">
+    <div className="dark:bg-black dark:text-white min-h-screen pb-10">
       <Header />
       <Image />
       <CreateMeme />
@@ -17,6 +17,11 @@ function App() {
 export default App;
 
 /*
+
+1) Make posts responsive
+2) Start working on making a database
+3) Connect and test the everything
+
 
 2) Make a basic ui
   - https://www.nytimes.com/games/wordle/index.html

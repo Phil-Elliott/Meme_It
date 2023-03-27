@@ -23,7 +23,7 @@ const Header = () => {
       <div className="text-2xl font-bold hidden sm:block">
         <h1>TDM</h1>
       </div>
-      <h1 className="text-2xl font-bold md:ml-20 pb-4 xs:p-0">TheDailyMeme</h1>
+      <h1 className="text-2xl font-bold md:ml-32 pb-4 xs:p-0">TheDailyMeme</h1>
       <div className="text-2xl space-x-4 sm:space-x-6 flex items-center">
         <button className="">
           <AiFillQuestionCircle />

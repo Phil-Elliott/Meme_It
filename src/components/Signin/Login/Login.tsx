@@ -1,10 +1,12 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 type LoginProps = {
   handleFormChange: () => void;
+  closeModal: () => void;
 };
 
-const Login = ({ handleFormChange }: LoginProps) => {
+const Login = ({ handleFormChange, closeModal }: LoginProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -22,6 +24,31 @@ const Login = ({ handleFormChange }: LoginProps) => {
   // Handling the form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(email, password);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:1337/api/auth/local",
+        {
+          identifier: email,
+          password: password,
+        }
+      );
+      let jwt = response.data.jwt;
+      localStorage.setItem("jwt", jwt);
+
+      // Redirect to the dashboard
+      if (jwt) {
+        console.log(response.data.user);
+        closeModal();
+        // dispatch(setJwt(jwt));
+        // dispatch(setUser(response.data.user));
+        // navigate("/dashboard/");
+      }
+    } catch (error: any) {
+      console.log(error);
+      setError("error");
+    }
   };
 
   return (
@@ -42,11 +69,6 @@ const Login = ({ handleFormChange }: LoginProps) => {
           onChange={handleEmail}
           value={email}
         />
-        {error && (
-          <p className="text-sm text-red-600 mb-2">
-            👋 Invalid email or password
-          </p>
-        )}
         <label
           className="text-sm font-semibold pb-1 text-gray-700"
           htmlFor="Password"
@@ -59,6 +81,11 @@ const Login = ({ handleFormChange }: LoginProps) => {
           onChange={handlePassword}
           value={password}
         />
+        {error && (
+          <p className="text-sm text-red-600 mb-2">
+            👋 Invalid email or password
+          </p>
+        )}
         {/* <p className={styles.forgot}>Forgot Password</p> */}
         <div className="">
           <button

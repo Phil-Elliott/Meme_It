@@ -27,10 +27,10 @@ const Header = () => {
 
   return (
     <div className="flex justify-between flex-col xs:flex-row items-center border-b-2 px-4 sm:px-8 py-4">
-      <div className="text-2xl font-bold hidden sm:block">
+      {/* <div className="text-2xl font-bold hidden sm:block">
         <h1>TDM</h1>
-      </div>
-      <h1 className="text-2xl font-bold md:ml-32 pb-4 xs:p-0">TheDailyMeme</h1>
+      </div> */}
+      <h1 className="text-2xl font-bold pb-4 xs:p-0">TheDailyMeme</h1>
       <div className="text-2xl space-x-4 sm:space-x-6 flex items-center">
         <button className="">
           <AiFillQuestionCircle />
@@ -55,7 +55,7 @@ const Header = () => {
       </div>
       {/* {displayModal && ( */}
       <Modal display={displayModal} closeModal={closeModal}>
-        <Signin />
+        <Signin closeModal={closeModal} />
       </Modal>
       {/* )} */}
     </div>

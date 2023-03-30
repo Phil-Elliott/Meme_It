@@ -1,10 +1,12 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 type SignupProps = {
   handleFormChange: () => void;
+  closeModal: () => void;
 };
 
-const Signup = ({ handleFormChange }: SignupProps) => {
+const Signup = ({ handleFormChange, closeModal }: SignupProps) => {
   const [username, setUsername] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -46,6 +48,29 @@ const Signup = ({ handleFormChange }: SignupProps) => {
       setAttempted(true);
       return;
     }
+
+    axios
+      .post("http://localhost:1337/api/auth/local/register", {
+        username: username,
+        email: email,
+        password: password,
+      })
+      .then((response) => {
+        console.log("User profile", response.data.user);
+        console.log("User token", response.data.jwt);
+        let jwt = response.data.jwt;
+        localStorage.setItem("jwt", jwt);
+
+        // Redirect to the dashboard
+        if (jwt) {
+          closeModal();
+          // dispatch(setJwt(jwt));   Might be able to survive on localstate
+          // dispatch(setUser(response.data.user)); could also put this in local state or just make context state or normal state
+        }
+      })
+      .catch((error) => {
+        console.log("An error occurred:", error.response);
+      });
   };
 
   return (

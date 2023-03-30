@@ -18,9 +18,12 @@ export default App;
 
 /*
 
-1) Make signin page
+make a context for the jwt or just keep it in localstate
+
+connect signin and login to strappi
+
+
 2) Make info modal
-3) Copy a lot of logic from PM signin page
 4) Make data in strapi for images and posts
 
 1) Put strapi on railway

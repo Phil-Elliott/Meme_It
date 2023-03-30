@@ -9,7 +9,6 @@ const Signup = ({ handleFormChange }: SignupProps) => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const [error, setError] = useState<string>("");
   const [attempted, setAttempted] = useState<boolean>(false);
 
   // Handling the name change
@@ -50,7 +49,7 @@ const Signup = ({ handleFormChange }: SignupProps) => {
   };
 
   return (
-    <div className="p-6 w-96">
+    <div className="p-6">
       <h2 className="text-2xl font-bold text-center pb-4 text-gray-800">
         Create and Account
       </h2>
@@ -68,7 +67,9 @@ const Signup = ({ handleFormChange }: SignupProps) => {
           value={username}
         />
         {username === "" && attempted && (
-          <p className="text-red-600 mb-2">👋 Please enter a username</p>
+          <p className="text-sm text-red-600 mb-2">
+            👋 Please enter a username
+          </p>
         )}
         <label
           className="text-sm font-semibold pb-1 text-gray-700"
@@ -83,7 +84,7 @@ const Signup = ({ handleFormChange }: SignupProps) => {
           value={email}
         />
         {email === "" && attempted && (
-          <p className="text-red-600 mb-2">👋 Please enter an email</p>
+          <p className="text-sm text-red-600 mb-2">👋 Please enter an email</p>
         )}
         <label
           className="text-sm font-semibold pb-1 text-gray-700"
@@ -98,7 +99,7 @@ const Signup = ({ handleFormChange }: SignupProps) => {
           value={password}
         />
         {password.length < 6 && attempted && (
-          <p className="text-red-600 mb-2">
+          <p className="text-sm text-red-600 mb-2">
             👋 Passwords must be at least 6 characters
           </p>
         )}
@@ -115,11 +116,11 @@ const Signup = ({ handleFormChange }: SignupProps) => {
           value={confirmPassword}
         />
         {password !== confirmPassword && attempted && (
-          <p className="text-red-600 mb-2">👋 Passwords do not match</p>
+          <p className="text-sm text-red-600 mb-2">👋 Passwords do not match</p>
         )}
         <div className="">
           <button
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold my-2 py-1 px-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
+            className="bg-black hover:opacity-90 text-white font-semibold mt-2 py-1 px-2 w-full rounded-md focus:outline-none"
             type="submit"
           >
             Sign up
@@ -130,7 +131,7 @@ const Signup = ({ handleFormChange }: SignupProps) => {
         Already have an account?{" "}
         <span
           className="
-          text-blue-500 cursor-pointer hover:underline
+          font-semibold cursor-pointer hover:underline
         "
           onClick={() => handleFormChange()}
         >

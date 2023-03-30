@@ -25,7 +25,7 @@ const Login = ({ handleFormChange }: LoginProps) => {
   };
 
   return (
-    <div className="p-6 w-96">
+    <div className="p-6">
       <h2 className="text-2xl font-bold text-center pb-4 text-gray-800">
         Login to Your Account
       </h2>
@@ -42,7 +42,11 @@ const Login = ({ handleFormChange }: LoginProps) => {
           onChange={handleEmail}
           value={email}
         />
-        {error && <p className="">👋 Invalid email or password</p>}
+        {error && (
+          <p className="text-sm text-red-600 mb-2">
+            👋 Invalid email or password
+          </p>
+        )}
         <label
           className="text-sm font-semibold pb-1 text-gray-700"
           htmlFor="Password"
@@ -58,7 +62,7 @@ const Login = ({ handleFormChange }: LoginProps) => {
         {/* <p className={styles.forgot}>Forgot Password</p> */}
         <div className="">
           <button
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold my-2 py-1 px-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400"
+            className="bg-black hover:opacity-90 text-white font-semibold mt-2 py-1 px-2 w-full rounded-md focus:outline-none focus:ring-offset-2"
             type="submit"
           >
             Sign in
@@ -69,7 +73,7 @@ const Login = ({ handleFormChange }: LoginProps) => {
         Don't have an account?{" "}
         <span
           className="
-          text-blue-500 cursor-pointer hover:underline
+          font-semibold cursor-pointer hover:underline
         "
           onClick={() => handleFormChange()}
         >

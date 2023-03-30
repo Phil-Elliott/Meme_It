@@ -21,7 +21,7 @@ const Modal = ({ display, closeModal, children }: ModalProps) => {
     }`}
     >
       <div
-        className={`bg-white shadow-md rounded transition-all duration-500 ease-in-out translate-y-0 ${
+        className={`w-[19rem] xs:w-[28rem] bg-white shadow-md rounded transition-all duration-500 ease-in-out translate-y-0 ${
           display ? "translate-y-0" : "translate-y-[-200px]"
         }`}
         ref={ref}

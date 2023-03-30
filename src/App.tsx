@@ -18,8 +18,28 @@ export default App;
 
 /*
 
-1) Make posts responsive
+1) Make signin page
+2) Make info modal
+3) Copy a lot of logic from PM signin page
+4) Make data in strapi for images and posts
+
+1) Put strapi on railway
+2) Make the data you need
+     - signin
+     - images
+     - posts
+     - rankings
+
+
+
+1) Make question modal (maybe do this last)
+2) Have text show up on the image
+3) Make sure input works
+
 2) Start working on making a database
+  - use strapi again
+
+
 3) Connect and test the everything
 
 

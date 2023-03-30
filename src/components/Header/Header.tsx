@@ -3,9 +3,16 @@ import { AiFillQuestionCircle } from "react-icons/ai";
 import { CiDark } from "react-icons/ci";
 import { BsFillSunFill } from "react-icons/bs";
 import Avatar from "../../shared/avatar/Avatar";
+import Modal from "../../shared/modal/Modal";
+import Signin from "../Signin/Signin";
 
 const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const [displayModal, setDisplayModal] = useState(false);
+
+  const closeModal = () => {
+    setDisplayModal(false);
+  };
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -41,9 +48,16 @@ const Header = () => {
           ></div>
           <CiDark />
         </button>
-        <button className="text-lg">Sign In</button>
+        <button className="text-lg" onClick={() => setDisplayModal(true)}>
+          Sign In
+        </button>
         {/* <Avatar /> */}
       </div>
+      {/* {displayModal && ( */}
+      <Modal display={displayModal} closeModal={closeModal}>
+        <Signin />
+      </Modal>
+      {/* )} */}
     </div>
   );
 };

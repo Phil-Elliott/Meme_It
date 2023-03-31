@@ -26,6 +26,7 @@ const Image = () => {
       )
       .then((res) => {
         setImage(res.data.data[0].attributes.img.data.attributes.url);
+        console.log(date);
       })
       .catch((err) => {
         console.log(err);
@@ -48,18 +49,26 @@ const Image = () => {
 
   return (
     <div className="flex items-center justify-center my-10 space-x-4 lg:space-x-10 text-xl sm:text-3xl mx-2 xs:mx-0">
-      <AiOutlineArrowLeft
-        className="cursor-pointer"
-        onClick={() => handleLeft()}
-      />
+      {moment(date).isSame("2023-03-30", "day") ? (
+        <AiOutlineArrowLeft className="invisible" />
+      ) : (
+        <AiOutlineArrowLeft
+          className="cursor-pointer"
+          onClick={() => handleLeft()}
+        />
+      )}
       <img
         className="w-3/4 lg:w-1/2 md:h-96 object-cover object-center rounded shadow-lg"
         src={`http://localhost:1337${image}`}
       />
-      <AiOutlineArrowRight
-        className="cursor-pointer"
-        onClick={() => handleRight()}
-      />
+      {moment(date).isSame(moment(), "day") ? (
+        <AiOutlineArrowRight className="invisible" />
+      ) : (
+        <AiOutlineArrowRight
+          className="cursor-pointer"
+          onClick={() => handleRight()}
+        />
+      )}
     </div>
   );
 };
@@ -68,7 +77,6 @@ export default Image;
 
 /*
 
-Add in left and right arrows to change the date later after app is finished
 
 
 

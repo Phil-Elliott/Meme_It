@@ -4,20 +4,20 @@ import axios from "axios";
 import moment from "moment";
 
 const Image = () => {
-  const [date, setDate] = useState<string>("2023-03-31");
+  const [date, setDate] = useState<string>(moment().format("YYYY-MM-DD"));
   const [image, setImage] = useState<any>([]);
 
   useEffect(() => {
-    setDate(moment().format("YYYY-MM-DD"));
     if (localStorage.getItem("jwt")) {
-      getImages();
+      getImages(date);
     }
   }, []);
 
-  function getImages() {
+  function getImages(dateToFetch: string) {
+    console.log(date, "date");
     axios
       .get(
-        `http://localhost:1337/api/images?filters[date][$eq]=${date}&populate=img`,
+        `http://localhost:1337/api/images?filters[date][$eq]=${dateToFetch}&populate=img`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("jwt")}`,
@@ -32,30 +32,34 @@ const Image = () => {
       });
   }
 
+  useEffect(() => {
+    console.log(date);
+  }, [date]);
+
   function handleLeft() {
+    getImages(moment(date).subtract(1, "days").format("YYYY-MM-DD"));
     setDate(moment(date).subtract(1, "days").format("YYYY-MM-DD"));
-    getImages();
   }
 
   function handleRight() {
+    getImages(moment(date).add(1, "days").format("YYYY-MM-DD"));
     setDate(moment(date).add(1, "days").format("YYYY-MM-DD"));
-    getImages();
   }
 
   return (
     <div className="flex items-center justify-center my-10 space-x-4 lg:space-x-10 text-xl sm:text-3xl mx-2 xs:mx-0">
-      {/* <AiOutlineArrowLeft
+      <AiOutlineArrowLeft
         className="cursor-pointer"
         onClick={() => handleLeft()}
-      /> */}
+      />
       <img
-        className="w-3/4 lg:w-1/2 h-1/2 object-cover object-center rounded"
+        className="w-3/4 lg:w-1/2 md:h-96 object-cover object-center rounded shadow-lg"
         src={`http://localhost:1337${image}`}
       />
-      {/* <AiOutlineArrowRight
+      <AiOutlineArrowRight
         className="cursor-pointer"
         onClick={() => handleRight()}
-      /> */}
+      />
     </div>
   );
 };

@@ -18,12 +18,18 @@ export default App;
 
 /*
 
-make a context for the jwt or just keep it in localstate
+1) Get images on strapi
+2) Have them show on app (show prev days and start at today)
+3) Make sure that the arrows work
 
-connect signin and login to strappi
+Run some tests
+
+1) Get posts to work
+
+1) Make info modal
 
 
-2) Make info modal
+
 4) Make data in strapi for images and posts
 
 1) Put strapi on railway

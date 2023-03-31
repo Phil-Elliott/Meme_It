@@ -41,6 +41,8 @@ const Login = ({ handleFormChange, closeModal }: LoginProps) => {
       if (jwt) {
         console.log(response.data.user);
         closeModal();
+        localStorage.setItem("email", response.data.user.email);
+        localStorage.setItem("username", response.data.user.username);
         // dispatch(setJwt(jwt));
         // dispatch(setUser(response.data.user));
         // navigate("/dashboard/");

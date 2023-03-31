@@ -64,6 +64,8 @@ const Signup = ({ handleFormChange, closeModal }: SignupProps) => {
         // Redirect to the dashboard
         if (jwt) {
           closeModal();
+          localStorage.setItem("email", response.data.user.email);
+          localStorage.setItem("username", response.data.user.username);
           // dispatch(setJwt(jwt));   Might be able to survive on localstate
           // dispatch(setUser(response.data.user)); could also put this in local state or just make context state or normal state
         }

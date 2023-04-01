@@ -18,8 +18,37 @@ export default App;
 
 /*
 
-1) Make posts responsive
+1) Get images on strapi
+2) Have them show on app (show prev days and start at today)
+3) Make sure that the arrows work
+
+Run some tests
+
+1) Get posts to work
+
+1) Make info modal
+
+
+
+4) Make data in strapi for images and posts
+
+1) Put strapi on railway
+2) Make the data you need
+     - signin
+     - images
+     - posts
+     - rankings
+
+
+
+1) Make question modal (maybe do this last)
+2) Have text show up on the image
+3) Make sure input works
+
 2) Start working on making a database
+  - use strapi again
+
+
 3) Connect and test the everything
 
 
